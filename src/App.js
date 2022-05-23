@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import Artwork from "./components/artwork";
 
 function App() {
+  const [imageId, setImagieId] = useState([]);
+  const [iiifUrl, setIiifUrl] = useState([]);
+  const [error, setError] = useState({
+    error: false,
+    message: "",
+  });
+
+  // useEffect(() => {
+  //   // ! calling the function
+  //   fetchImg();
+  // }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="heading">
+        <h1>Welcome to our art store</h1>
+      </div>
+      <Artwork
+        imageId={imageId}
+        setImageId={setImagieId}
+        iiifUrl={iiifUrl}
+        setIiifUrl={setIiifUrl}
+        setError={setError}
+      />
     </div>
   );
 }
