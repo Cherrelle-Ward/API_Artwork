@@ -5,22 +5,21 @@ import { faker } from "@faker-js/faker";
 function App() {
   const [imageId, setImagieId] = useState([]);
   const [iiifUrl, setIiifUrl] = useState([]);
-  const [error, setError] = useState({
-    error: false,
-    message: "",
-  });
+  // const [error, setError] = useState({
+  //   error: false,
+  //   message: "",
+  // });
   const addFakerData = (data) => {
     let fakerData = faker.commerce.price((10, 20));
     console.log(fakerData, "i am faker data");
-    // try {
-    //   for (let i = 0; i < data.length; i++) {
-    //     data[i].price = faker.commerce.price();
-    //   }
-    //   return data;
-    //   console.log(data, "i am faker data");
-    // } catch (error) {
-    //   console.log(error, "i am error");
-    // }
+    try {
+      for (let i = 0; i < data.length; i++) {
+        data[i].price = faker.commerce.price();
+      }
+      return data;
+    } catch (error) {
+      console.log(error, "i am error");
+    }
   };
 
   useEffect(() => {
@@ -39,7 +38,7 @@ function App() {
         setImageId={setImagieId}
         iiifUrl={iiifUrl}
         setIiifUrl={setIiifUrl}
-        setError={setError}
+        // setError={setError}
       />
     </div>
   );
