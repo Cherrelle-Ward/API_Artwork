@@ -3,12 +3,12 @@ import "../App.css";
 import { faker } from "@faker-js/faker";
 
 const Artwork = ({
-  error,
-  setError,
+  // error,
+  // setError,
   imageId,
   setImageId,
-  setIiifUrl,
   iiifUrl,
+  setIiifUrl,
 }) => {
   const [moreInfo, setMoreInfo] = useState(false);
 
@@ -17,7 +17,7 @@ const Artwork = ({
   //! FETCH
   const fetchImg = async () => {
     try {
-      setError(false);
+      // setError(false);
       const res = await fetch(
         `https://api.artic.edu/api/v1/artworks?fields=id,artist_title,title,artist_display,image_id&limit=12&page=${pageNum}`
       );
@@ -33,12 +33,12 @@ const Artwork = ({
       console.log(iiifUrl, "i am iiifUrl");
     } catch (error) {
       console.log(error, "error");
-      setError({ error: true, message: error.message });
+      // setError({ error: true, message: error.message });
     }
   };
 
+  // ! calling the function
   useEffect(() => {
-    // ! calling the function
     // fetchImg();
   }, []);
 
@@ -77,7 +77,7 @@ const Artwork = ({
       </div>
 
       <div className="btn">
-        <button onClick={fetchImg}>Next Page</button>
+        <button onClick={fetchImg}>Generate Art</button>
       </div>
     </div>
   );
