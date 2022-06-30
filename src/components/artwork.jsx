@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import react from "react";
 import "../App.css";
 import { faker } from "@faker-js/faker";
 
@@ -40,7 +39,7 @@ const Artwork = ({
 
   useEffect(() => {
     // ! calling the function
-    fetchImg();
+    // fetchImg();
   }, []);
 
   return (
